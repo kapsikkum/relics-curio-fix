@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+    modId = "relicscuriofix"
+    version = "1.0.0"
+    displayName = "Relics Curio Fix"
+    description = "Fixes NPE in Relics CurioSlotReference.gatherStack() when a curio slot identifier is missing from the handler map."
+
+[[dependencies.relicscuriofix]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[21.1,)"
+    ordering = "NONE"
+    side = "CLIENT"
+
+[[dependencies.relicscuriofix]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[1.21.1,)"
+    ordering = "NONE"
+    side = "CLIENT"
+
+[[dependencies.relicscuriofix]]
+    modId = "relics"
+    type = "required"
+    versionRange = "[0.10,)"
+    ordering = "AFTER"
+    side = "CLIENT"
+
+[[mixins]]
+    config = "mixins.relicscuriofix.json"

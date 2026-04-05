@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version "${moddev_version}"
+}
+
+version = mod_version
+group = 'net.kapsikkum.relicscuriofix'
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+neoForge {
+    version = neo_version
+
+    mods {
+        relicscuriofix {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(['MixinConfigs': 'mixins.relicscuriofix.json'])
+    }
+}
