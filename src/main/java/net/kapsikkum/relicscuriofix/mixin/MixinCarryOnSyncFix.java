@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * Fixes a NullPointerException in Carry On 2.2.4.4 that mass-disconnects all
@@ -69,7 +69,7 @@ public class MixinCarryOnSyncFix {
         if (this.nbt == null) return;
         try {
             this.nbt = this.nbt.copy();
-        } catch (NullPointerException | RuntimeException e) {
+        } catch (RuntimeException e) {
             LOGGER.warn(
                 "[CarryOn fix] Could not deep-copy block entity NBT after pickup ({}). " +
                 "Falling back to empty tag — block contents will be lost on placement, " +
